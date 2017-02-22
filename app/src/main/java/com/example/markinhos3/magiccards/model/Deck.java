@@ -6,17 +6,15 @@ public class Deck {
     private int remaining;
     private String id;
 
+    // necesito constructor vacío para poder usar REALM
+    public Deck(){
+
+    }
 
     // constructor del Deck que le pase el id
     public Deck(String id) {
         this.id = id;
     }
-
-    // necesito constructor vacío para que vaya con REALM
-    public Deck(){
-
-    }
-
 
     // métodos de las vbles privadas
     public int getRemaining() {
