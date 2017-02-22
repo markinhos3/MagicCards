@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         apiManager.setOnNewDeckListener(new DeckApiManager.DeckApiManagerNewDeckListener() {
             @Override
             public void onNewDeck(Deck deck) {
-                Log.d("","");
+                //Log.d("","");
             }
         });
         apiManager.newDeck(this);

@@ -20,7 +20,7 @@ import java.io.StringReader;
 public class DeckApiManager {
 
     // me creo como una cte la dirección donde hago la petición que es fija
-    private final static String NEW_DECK_REQUEST ="https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1";
+    private static final String NEW_DECK_REQUEST ="https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1";
 
 
     // ---- objeto que está interesado en la petición que hace new Deck; la única manera de devolver el Deck es crando una interface para hacer un objeto LISTENER
@@ -48,13 +48,10 @@ public class DeckApiManager {
         StringRequest request = new StringRequest(NEW_DECK_REQUEST, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) { //all OK
-
-
                 Log.d("RESPONSE", response); // le paso la respuesta del servidor
 
                 //método que voy a crear con alt+insert dentro de WeatherAPI
                 parseJSON(response);
-
             }
         }, new Response.ErrorListener() { // not all OK
             @Override
@@ -64,7 +61,7 @@ public class DeckApiManager {
             }
         });
 
-        // ahora LANZO la PETICIÓN
+        // ahora LANZO la PETICIÓN; la cola saca la petición
         queue.add(request);
     }
     //----------------------------------------------

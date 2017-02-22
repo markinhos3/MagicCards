@@ -13,7 +13,7 @@ public class Card {
     }
 
     // vamos a trincar los datos de cartas (2 campos)
-    private String suit; // plao de la baraja
+    private String suit; // palo de la baraja
     private String image;
 
     public String getSuit() {

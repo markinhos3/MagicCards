@@ -16,7 +16,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class DeckEntity { // en el ENTITY => SE PARSEA TODDO aunque luego en el DECK SE UTILICE SÓLO LO QUE QUERAMOS DE ESE PARSEO
 
-    // cojo todos los datos aunque luego use 2
+    // cojo/parseo todos los datos aunque luego use sólo 2
     @SerializedName("remaining") private int remaining;
     @SerializedName ("deck_id") private String deck_id;
     @SerializedName ("success") private boolean success;
