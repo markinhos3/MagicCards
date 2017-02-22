@@ -5,6 +5,7 @@ package com.example.markinhos3.magiccards.model;
 public class Deck {
     private int remaining;
     private String id;
+    private int remains;
 
     // necesito constructor vacío para poder usar REALM
     public Deck(){
@@ -17,6 +18,14 @@ public class Deck {
     }
 
     // métodos de las vbles privadas
+    public int getRemains() {
+        return remains;
+    }
+
+    public void setRemains(int remains) {
+        this.remains = remains;
+    }
+
     public int getRemaining() {
         return remaining;
     }
