@@ -57,7 +57,17 @@ public class CardApiManager {
         CardEntity cardEntity = gson.fromJson(reader, CardEntity.class);
 
         Card card = new Card();
-
+        card.setImage(cardEntity.getCards().get(0).getImage());
+        if(cardEntity.getCards().get(0).getSuit().equals(Card.Suit.CLUBS)){
+            card.setSuit(Card.Suit.CLUBS);
+        }else if(cardEntity.getCards().get(0).getSuit().equals(Card.Suit.HEARTS)){
+            card.setSuit(Card.Suit.HEARTS);
+        }else if(cardEntity.getCards().get(0).getSuit().equals(Card.Suit.SPADES)){
+            card.setSuit(Card.Suit.SPADES);
+        }else if(cardEntity.getCards().get(0).getSuit().equals(Card.Suit.DIAMONDS)) {
+            card.setSuit(Card.Suit.DIAMONDS);
+        }
+        card.setLeft(cardEntity.getRemaining());
 
         if(listener !=null){
             listener.onNewCard(card);
