@@ -12,6 +12,7 @@ import com.example.markinhos3.magiccards.managers.CardApiManager;
 import com.example.markinhos3.magiccards.managers.DeckApiManager;
 import com.example.markinhos3.magiccards.model.Card;
 import com.example.markinhos3.magiccards.model.Deck;
+import com.example.markinhos3.magiccards.util.Temblator;
 import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
@@ -43,7 +44,11 @@ public class MainActivity extends AppCompatActivity {
 
         cardImage.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(final View v) {
+
+                // vibración
+                Temblator.tremble(v.getContext(),100);
+
                 CardApiManager cardApiManager = new CardApiManager();
                 cardApiManager.setOnNewCardListener(new CardApiManager.CardApiManagerNewCardListener() {
                     @Override

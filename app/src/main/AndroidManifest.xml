@@ -5,6 +5,9 @@
     <!-- PERMISOS DE INTERNET -->
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <!-- Uso de Permisos para la VIBRACIÓN -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:name=".DrawCardApplication"
         android:allowBackup="true"
