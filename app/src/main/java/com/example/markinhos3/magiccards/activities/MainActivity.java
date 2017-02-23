@@ -1,4 +1,4 @@
-package com.example.markinhos3.magiccards;
+package com.example.markinhos3.magiccards.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,10 +7,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.markinhos3.magiccards.R;
 import com.example.markinhos3.magiccards.managers.CardApiManager;
 import com.example.markinhos3.magiccards.managers.DeckApiManager;
 import com.example.markinhos3.magiccards.model.Card;
 import com.example.markinhos3.magiccards.model.Deck;
+import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -47,6 +49,9 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onNewCard(Card card) {
 
+                        // Añadiendo Picasso
+                        Picasso.with(MainActivity.this).load(card.getImage()).placeholder(R.drawable.card_back).into(cardImage);
+                        cardsRemain.setText("" + card.getLeft());
                     }
                 });
                 cardApiManager.newCard(v.getContext(), deck);
