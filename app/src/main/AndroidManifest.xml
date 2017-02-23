@@ -2,13 +2,20 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.markinhos3.magiccards">
 
+    <!-- PERMISOS DE INTERNET -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Uso de Permisos para la VIBRACIÓN -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
+        android:name=".DrawCardApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/baraja"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
