@@ -87,7 +87,5 @@ public class DeckApiManager {
             listener.onNewDeck(deck);
         }
     }
-    //--------------------------------
-
 
 }

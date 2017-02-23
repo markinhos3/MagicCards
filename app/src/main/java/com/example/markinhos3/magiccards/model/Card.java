@@ -8,13 +8,15 @@ public class Card {
     public enum Suit {
         SPADES,
         HEARTS,
-        DIAMONS,
+        DIAMONDS,
         CLUBS
     }
 
     // vamos a trincar los datos de cartas (2 campos)
     private String suit; // palo de la baraja
     private String image;
+    private int left;
+
 
     public String getSuit() {
         return suit;
@@ -30,5 +32,13 @@ public class Card {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public int getLeft() {
+        return left;
+    }
+
+    public void setLeft(int left) {
+        this.left = left;
     }
 }

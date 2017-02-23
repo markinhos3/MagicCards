@@ -3,26 +3,56 @@ package com.example.markinhos3.magiccards;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.example.markinhos3.magiccards.managers.CardApiManager;
 import com.example.markinhos3.magiccards.managers.DeckApiManager;
+import com.example.markinhos3.magiccards.model.Card;
 import com.example.markinhos3.magiccards.model.Deck;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity {
+
+   private Deck deck;
+
+    @BindView(R.id.activity_main___cards_remain_text) TextView cardsRemain;
+    @BindView(R.id.activity_main___card_image) ImageView cardImage;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
         DeckApiManager apiManager = new DeckApiManager();
-
-        // cuando llegue NewDeck hago cosas
         apiManager.setOnNewDeckListener(new DeckApiManager.DeckApiManagerNewDeckListener() {
             @Override
-            public void onNewDeck(Deck deck) {
-                //Log.d("","");
+            public void onNewDeck(Deck deckFromJson) {
+                cardsRemain.setText("" + deckFromJson.getRemaining());
+                deck = deckFromJson;
             }
         });
         apiManager.newDeck(this);
+
+        cardImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CardApiManager cardApiManager = new CardApiManager();
+                cardApiManager.setListener(new CardApiManager.CardApiManagerNewCardListener() {
+                    @Override
+                    public void onNewCard(Card card) {
+
+                    }
+                });
+                cardApiManager.newCard(v.getContext(), deck);
+            }
+        });
+
+
     }
 }

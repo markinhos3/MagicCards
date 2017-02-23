@@ -16,31 +16,32 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:layout_below="@+id/activity_main___cadrs_left_text"
-        android:background="#693535"
+        android:layout_height="10dp"
+        android:layout_below="@+id/activity_main___cards_remain_text"
+        android:background="#d0000000"
 
         ></FrameLayout>
 
     <TextView
-        android:id="@+id/activity_main___cadrs_left_text"
+        android:id="@+id/activity_main___cards_remain_text"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         tools:text="30 Cards Left"
         android:textSize="40sp"
         android:textColor="#ffffff"
         android:fontFamily="sans-serif-condensed"
         android:gravity="center"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="400dp"
         android:textStyle="bold"
         android:background="#886e2727"
         />
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:layout_above="@id/activity_main___cadrs_left_text"
-        android:background="#693535"
+        android:layout_height="10dp"
+        android:layout_alignTop="@+id/activity_main___cards_remain_text"
+        android:background="#d0000000"
+
 
         ></FrameLayout>
 
