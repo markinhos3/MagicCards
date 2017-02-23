@@ -24,51 +24,62 @@ public class CardApiManager {
 
     private CardApiManagerNewCardListener listener;
 
-    public void setListener(CardApiManagerNewCardListener listener) {
+    public void setOnNewCardListener(CardApiManagerNewCardListener listener) {
         this.listener = listener;
     }
 
     public void newCard(Context context, Deck deck){
+        // creo una cola de peticiones
         RequestQueue queue = Volley.newRequestQueue(context);
 
-        String url = "https://deckofcardsapi.com/api/deck/" + deck.getId() + "/draw/?count=1";
-        Log.d("URL",url);
+        String URL = "https://deckofcardsapi.com/api/deck/" + deck.getId() + "/draw/?count=1";
 
-        StringRequest request = new StringRequest(url, new Response.Listener<String>() {
+        // hago la petición
+        StringRequest request = new StringRequest(URL, new Response.Listener<String>() {
             @Override
-            public void onResponse(String response) {
-                Log.d("RESPONSE", response);
+            public void onResponse(String response) { // all ok
+                Log.d("RESPONSE", response); // le paso la respuesta del servidor
                 parseJSON(response);
             }
-        }, new Response.ErrorListener(){
+        }, new Response.ErrorListener(){ // not all ok
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.e("HORROR", "Connection went to shit to the tracks");
             }
         });
 
+        // saco la petición con la cola
         queue.add(request);
     }
 
+    // parseo del JSON
     private void parseJSON(String response) {
         Reader reader= new StringReader(response);
         Gson gson = new GsonBuilder().create();
 
+
+
         CardEntity cardEntity = gson.fromJson(reader, CardEntity.class);
 
+        // manejo Card para hacer un mapeo de los datos
         Card card = new Card();
         card.setImage(cardEntity.getCards().get(0).getImage());
-        if(cardEntity.getCards().get(0).getSuit().equals(Card.Suit.CLUBS)){
-            card.setSuit(Card.Suit.CLUBS);
-        }else if(cardEntity.getCards().get(0).getSuit().equals(Card.Suit.HEARTS)){
-            card.setSuit(Card.Suit.HEARTS);
-        }else if(cardEntity.getCards().get(0).getSuit().equals(Card.Suit.SPADES)){
-            card.setSuit(Card.Suit.SPADES);
-        }else if(cardEntity.getCards().get(0).getSuit().equals(Card.Suit.DIAMONDS)) {
-            card.setSuit(Card.Suit.DIAMONDS);
-        }
-        card.setLeft(cardEntity.getRemaining());
 
+        switch (cardEntity.getCards().get(0).getSuit()){
+
+            case "card.setSuit(String.valueOf(Card.Suit.CLUBS)":
+                break;
+            case "card.setSuit(String.valueOf(Card.Suit.HEARTS)":
+                break;
+            case "card.setSuit(String.valueOf(Card.Suit.SPADES)":
+                break;
+            case "card.setSuit(String.valueOf(Card.Suit.DIAMONDS)":
+                break;
+            default:
+                card.setLeft(cardEntity.getRemaining());
+        }
+
+        // hago el listener
         if(listener !=null){
             listener.onNewCard(card);
         }

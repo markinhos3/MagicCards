@@ -45,9 +45,9 @@ public class CardEntity {
     public void setCards(List<Cards> cards) {
         this.cards = cards;
     }
+
     // para la clase Cards
     public class Cards{
-        @SerializedName("images") private Format_img images;
         @SerializedName("image") private String image;
         @SerializedName("value") private String value;
         @SerializedName("suit") private String suit;
@@ -70,13 +70,7 @@ public class CardEntity {
             this.image = image;
         }
 
-        public Format_img getImages() {
-            return images;
-        }
 
-        public void setImages(Format_img images) {
-            this.images = images;
-        }
 
         public String getCode() {
             return code;
@@ -95,27 +89,5 @@ public class CardEntity {
         }
     }
 
-
-    // para la clase Format_img (para los diferentes formatos)
-    public class Format_img{
-        @SerializedName("svg") private String svg;
-        @SerializedName("png") private String png;
-
-        public String getSvg() {
-            return svg;
-        }
-
-        public void setSvg(String svg) {
-            this.svg = svg;
-        }
-
-        public String getPng() {
-            return png;
-        }
-
-        public void setPng(String png) {
-            this.png = png;
-        }
-    }
 
 }

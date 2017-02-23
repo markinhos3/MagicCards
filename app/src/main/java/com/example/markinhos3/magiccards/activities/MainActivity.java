@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 CardApiManager cardApiManager = new CardApiManager();
-                cardApiManager.setListener(new CardApiManager.CardApiManagerNewCardListener() {
+                cardApiManager.setOnNewCardListener(new CardApiManager.CardApiManagerNewCardListener() {
                     @Override
                     public void onNewCard(Card card) {
 

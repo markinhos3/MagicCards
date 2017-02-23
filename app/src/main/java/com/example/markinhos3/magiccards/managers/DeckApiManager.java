@@ -43,14 +43,12 @@ public class DeckApiManager {
         // creo una cola de peticiones
         RequestQueue queue = Volley.newRequestQueue(context); //aquí me pide el context
 
-
         //petición al servidor de las cartas
         StringRequest request = new StringRequest(NEW_DECK_REQUEST, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) { //all OK
                 Log.d("RESPONSE", response); // le paso la respuesta del servidor
 
-                //método que voy a crear con alt+insert dentro de WeatherAPI
                 parseJSON(response);
             }
         }, new Response.ErrorListener() { // not all OK

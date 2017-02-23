@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="10dp"
         android:layout_below="@+id/activity_main___cards_remain_text"
-        android:background="#d0000000"
+        android:background="#81000000"
 
         ></FrameLayout>
 
@@ -40,7 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="10dp"
         android:layout_alignTop="@+id/activity_main___cards_remain_text"
-        android:background="#d0000000"
+        android:background="#81000000"
 
 
         ></FrameLayout>
